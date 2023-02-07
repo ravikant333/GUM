@@ -9,7 +9,9 @@ interface Props {
 }
 
 export const handleCreatePost = async (metadataUri: String, profilePDA: PublicKey, userPDA: PublicKey, user: PublicKey, sdk: SDK) => {
+metadataUri='https://github.com/gumhq/gum-example-app'
   if (!metadataUri || !userPDA || !profilePDA) return;
+  console.log(metadataUri,userPDA,profilePDA)
   const post = await sdk.post.create(metadataUri, profilePDA, userPDA, user);
   await post.instructionMethodBuilder.rpc();
 };
